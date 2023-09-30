@@ -59,6 +59,7 @@ public class JFView extends javax.swing.JFrame {
         jBcadastroNovo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBcadastroNovo);
 
+        jBcadastroSalvar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jBcadastroSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/salvar.png"))); // NOI18N
         jBcadastroSalvar.setText("Salvar");
         jBcadastroSalvar.setFocusable(false);
@@ -67,6 +68,7 @@ public class JFView extends javax.swing.JFrame {
         jToolBar1.add(jBcadastroSalvar);
 
         jBcadastroExcluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jBcadastroExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/excluir.png"))); // NOI18N
         jBcadastroExcluir.setText("Excluir");
         jBcadastroExcluir.setEnabled(false);
         jBcadastroExcluir.setFocusable(false);
@@ -184,7 +186,7 @@ public class JFView extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

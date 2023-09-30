@@ -34,6 +34,16 @@ public class ClienteRepository {
 
     }
 
+    public void remove(long id) {
+
+        EntityTransaction tx = manager.getTransaction();
+        tx.begin();
+        manager.remove(manager.find(Cliente.class, id));
+        tx.commit();
+        manager.close();
+
+    }
+
     public List findAll() {
 
         Query query = manager.createQuery("SELECT OBJ FROM " + Cliente.class.getSimpleName() + " OBJ");

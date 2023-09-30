@@ -29,6 +29,13 @@ public class CadastroController {
 
         });
 
+        view.jBcadastroExcluir.addActionListener((ActionEvent e) -> {
+
+            excluir();
+            carregarResultados();
+
+        });
+
         view.jTresultados.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
 
             if (!e.getValueIsAdjusting()) {
@@ -40,6 +47,9 @@ public class CadastroController {
                     abrirCadastro((long) view.jTresultados.getModel().getValueAt(selectedRow, 0));
 
                 }
+
+                view.jBcadastroExcluir.setEnabled(selectedRow != -1);
+
             }
 
         });
@@ -56,7 +66,28 @@ public class CadastroController {
         cliente.setImagemPerfil(ImageLoader.lerBytes());
 
         ClienteRepository clienteRepository = new ClienteRepository(jpaUtil.manager());
-        clienteRepository.persiste(cliente);
+
+        if (idAberto == 0) {
+
+            clienteRepository.persiste(cliente);
+
+        } else {
+
+            cliente.setId(idAberto);
+            clienteRepository.merge(cliente);
+
+        }
+
+    }
+
+    private void excluir() {
+
+        if (idAberto != 0) {
+
+            ClienteRepository clienteRepository = new ClienteRepository(jpaUtil.manager());
+            clienteRepository.remove(idAberto);
+
+        }
 
     }
 
