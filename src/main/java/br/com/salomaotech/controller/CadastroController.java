@@ -146,6 +146,7 @@ public class CadastroController {
         if (idAberto == 0) {
 
             clienteRepository.persiste(cliente);
+            idAberto = cliente.getId();
 
         } else {
 
