@@ -6,6 +6,8 @@ import br.com.salomaotech.model.servicos.ImageLoader;
 import br.com.salomaotech.model.servicos.JpaUtil;
 import br.com.salomaotech.view.JFView;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
@@ -64,6 +66,17 @@ public class CadastroController {
                 }
 
                 view.jBcadastroExcluir.setEnabled(selectedRow != -1);
+
+            }
+
+        });
+
+        view.addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+
+                jpaUtil.close();
 
             }
 

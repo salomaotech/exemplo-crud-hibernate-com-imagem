@@ -3,6 +3,7 @@ package br.com.salomaotech.model.servicos;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -44,7 +45,11 @@ public class ImageLoader {
                     if (labelWidth > 0 && labelHeight > 0) {
 
                         Image scaledImage = redimensionarImagem(img, labelWidth, labelHeight);
-                        imagem.setIcon(new ImageIcon(scaledImage));
+                        ImageIcon icon = new ImageIcon(scaledImage);
+                        icon.setImageObserver(imagem);
+                        imagem.setIcon(icon);
+                        imagem.setHorizontalAlignment(JLabel.CENTER);
+                        imagem.setVerticalAlignment(JLabel.CENTER);
                         return;
 
                     }
@@ -53,7 +58,7 @@ public class ImageLoader {
 
             }
 
-        } catch (Exception ex) {
+        } catch (IOException ex) {
 
         }
 
