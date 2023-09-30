@@ -30,6 +30,7 @@ public class JFView extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         jBcadastroNovo = new javax.swing.JButton();
         jBcadastroSalvar = new javax.swing.JButton();
+        jBcadastroExcluir = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTcadastroNome = new javax.swing.JTextField();
@@ -64,6 +65,14 @@ public class JFView extends javax.swing.JFrame {
         jBcadastroSalvar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jBcadastroSalvar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jBcadastroSalvar);
+
+        jBcadastroExcluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jBcadastroExcluir.setText("Excluir");
+        jBcadastroExcluir.setEnabled(false);
+        jBcadastroExcluir.setFocusable(false);
+        jBcadastroExcluir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBcadastroExcluir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jBcadastroExcluir);
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -259,6 +268,7 @@ public class JFView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton jBcadastroExcluir;
     public javax.swing.JButton jBcadastroNovo;
     public javax.swing.JButton jBcadastroSalvar;
     private javax.swing.JLabel jLabel1;

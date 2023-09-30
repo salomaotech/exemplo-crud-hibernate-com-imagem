@@ -1,10 +1,7 @@
 package br.com.salomaotech.model.entidades;
 
-import br.com.salomaotech.model.enums.Sexo;
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,9 +18,6 @@ public class Cliente implements Serializable {
     private String sobrenome;
     private String email;
     private String numeroTelefone;
-
-    @Enumerated(EnumType.STRING)
-    private Sexo sexo;
 
     @Lob
     private byte[] imagemPerfil;
@@ -66,14 +60,6 @@ public class Cliente implements Serializable {
 
     public void setNumeroTelefone(String numeroTelefone) {
         this.numeroTelefone = numeroTelefone;
-    }
-
-    public Sexo getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(Sexo sexo) {
-        this.sexo = sexo;
     }
 
     public byte[] getImagemPerfil() {

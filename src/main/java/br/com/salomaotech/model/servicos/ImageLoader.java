@@ -1,5 +1,6 @@
 package br.com.salomaotech.model.servicos;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.nio.file.FileSystems;
@@ -8,7 +9,6 @@ import java.nio.file.Path;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 public class ImageLoader {
 
@@ -28,20 +28,45 @@ public class ImageLoader {
 
     }
 
-    public static void construirImagem(byte[] bytes) {
+    public static void construirImagem(byte[] bytes, JLabel imagem) {
 
-        if (bytes != null) {
+        try {
 
-            try {
+            if (bytes != null) {
 
                 BufferedImage img = ImageIO.read(new ByteArrayInputStream(bytes));
-                JOptionPane.showMessageDialog(null, new JLabel(new ImageIcon(img)));
 
-            } catch (Exception ex) {
+                if (img != null) {
+
+                    int labelWidth = imagem.getWidth();
+                    int labelHeight = imagem.getHeight();
+
+                    if (labelWidth > 0 && labelHeight > 0) {
+
+                        Image scaledImage = redimensionarImagem(img, labelWidth, labelHeight);
+                        imagem.setIcon(new ImageIcon(scaledImage));
+                        return;
+
+                    }
+
+                }
 
             }
 
+        } catch (Exception ex) {
+
         }
+
+        imagem.setIcon(null);
+
+    }
+
+    private static Image redimensionarImagem(BufferedImage originalImage, int width, int height) {
+
+        double scale = Math.min((double) width / originalImage.getWidth(), (double) height / originalImage.getHeight());
+        int scaledWidth = (int) (originalImage.getWidth() * scale);
+        int scaledHeight = (int) (originalImage.getHeight() * scale);
+        return originalImage.getScaledInstance(scaledWidth, scaledHeight, Image.SCALE_SMOOTH);
 
     }
 
