@@ -3,18 +3,18 @@ package br.com.salomaotech.model.servicos;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class ImageLoader {
 
-    public static byte[] lerBytes() {
+    public static byte[] lerBytes(String caminhoDaImagem) {
 
-        Path path = FileSystems.getDefault().getPath("amelia.jpg");
+        Path path = Paths.get(caminhoDaImagem);
 
         try {
 
